@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    min-width: 335px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+@media (min-width: 900px) {
+    .container {
+        width: 850px;
+        margin: auto;
+    }
+}
+
+/* Transactions Component */
+
+.p-card .p-card-content {
+    padding: 0;
+}
+
+.p-datatable .p-datatable-header  {
+    border: 0 none transparent;
+    background-color: transparent;
+}
+
+.p-datatable .p-datatable-thead > tr > th  {
+    border: 0 none transparent;
+    background-color: transparent;
+}
+
+@media (max-width: 640px) {
+    .p-datatable .p-datatable-tbody > tr {
+        background-color: transparent;
+        border-top: 1px solid #dee2e6;
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+
+
+@media (min-width: 640px) {
+    .p-datatable .p-datatable-tbody > tr > td {
+        border: 0 none transparent;
+    }
+}
+
+.p-datatable .p-paginator-bottom {
+    border: 0 none transparent;
+    padding: 10px 0 0;
+}
+
+/* Multiselect component */
+
+.p-multiselect {
+    width: 100%;
+}
+
+/* Home Component */
+
+.welcome-card .p-card {
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.negative-balance .p-card {
+    background-color: #F57A7A;
+    font-weight: 500;
+}
+
+.positive-balance .p-card {
+    background-color: #1BD273;
+    font-weight: 500;
+}
+
+.wallets-card .p-card {
+    border-left: 4px solid #6d7277;
+}

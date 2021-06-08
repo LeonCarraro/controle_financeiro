@@ -1,0 +1,40 @@
+.table-name-column {
+    width: 50%;
+}
+
+.table-value-column {
+    text-align: right !important;
+    width: 25%;
+}
+
+@media (max-width: 640px) {
+    .table-value-column {
+        text-align: left !important;
+    }
+}
+
+.table-empty-message {
+    text-align: center !important;
+}
+
+.create-transaction-dialog {
+    width: 75%;
+}
+
+.save-button {
+    height: 60px !important;
+    width: 60px !important;
+    margin: 25px 0 10px 0;
+}
+
+.save-button-smaller {
+    height: 50px !important;
+    width: 50px !important;
+    margin: 25px 0 0 0;
+}
+
+.form-create-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}

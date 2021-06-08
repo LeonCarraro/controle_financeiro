@@ -1,0 +1,73 @@
+<div class="container p-mt-5">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-6">
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <p-card [ngClass]="{
+                        'positive-balance': generalStatistics?.totalBalance >= 0,
+                        'negative-balance': generalStatistics?.totalBalance < 0,
+                        'welcome-card': true
+                    }"> Bem vindo, {{ authService.jwtPayload?.user_name }}
+                        <div>
+                            <h1>{{ generalStatistics?.totalBalance | currency : 'BRL' }}</h1>
+                            <small>Saldo geral</small>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-col-12 p-md-6">
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <p-card [ngClass]="'wallets-card'">
+                        <h3>Minhas contas</h3>
+                        <div class="card-wallets" *ngFor="let wallet of generalStatistics?.wallets">
+                            <div class="card-wallets-name">
+                                <i class="fas fa-coins" style="font-size: 1.5rem; margin-right: 10px;"></i>
+                                <span>{{ wallet.name }}</span>
+                            </div>
+                            <h2 [ngClass]="(wallet.balance >= 0) ? 'wallet-value-positive' : 'wallet-value-negative'">
+                                {{ wallet.balance | currency : 'BRL' }}
+                            </h2>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-col-12" *ngIf="generalStatistics?.positiveStatisticByCategory.length !== 0">
+            <p-card [ngClass]="'wallets-card'">
+                <h3>Categorias com maiores lucros</h3>
+                <div class="card-categories">
+                    <div class="card-wallets" *ngFor="let cat of generalStatistics?.positiveStatisticByCategory">
+                        <span>{{ cat.categoryName }}</span>
+                        <h2 [ngClass]="(cat.value >= 0) ? 'wallet-value-positive' : 'wallet-value-negative'">
+                            {{ cat.value | currency : 'BRL'  }}
+                        </h2>
+                    </div>
+                    <div style="margin-top: 52px;">
+                        <p-chart type="doughnut" [data]="positiveChartData" [options]="chartOptions" [responsive]="true" width="100%" height="40vh"></p-chart>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+
+        <div class="p-col-12" *ngIf="generalStatistics?.negativeStatisticByCategory.length !== 0">
+            <p-card [ngClass]="'wallets-card'">
+                <h3>Categorias com maiores despesas</h3>
+                <div class="card-categories">
+                    <div class="card-wallets" *ngFor="let cat of generalStatistics?.negativeStatisticByCategory">
+                        <span>{{ cat.categoryName }}</span>
+                        <h2 [ngClass]="(cat.value >= 0) ? 'wallet-value-positive' : 'wallet-value-negative'">
+                          {{ cat.value | currency : 'BRL'  }}
+                        </h2>
+                    </div>
+                    <div style="margin-top: 52px;">
+                        <p-chart type="doughnut" [data]="negativeChartData" [options]="chartOptions" [responsive]="true" width="100%" height="40vh"></p-chart>
+                    </div>
+                </div>
+            </p-card>
+          </div>
+      </div>
+</div>

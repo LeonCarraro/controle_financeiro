@@ -1,0 +1,17 @@
+DROP TABLE tb_user;
+DROP TABLE tb_category;
+
+CREATE TABLE tb_category (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR (50) NOT NULL,
+
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE tb_user (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    username VARCHAR (50) NOT NULL,
+    password VARCHAR (255) NOT NULL,
+
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

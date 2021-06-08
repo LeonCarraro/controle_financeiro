@@ -1,0 +1,35 @@
+<div class="login-body">
+    <div class="login-content">
+        <div class="login-panel">
+            <div class="login-panel-content">
+                <h1>Acesse sua conta</h1>
+                <p>Bem vindo. Digite seu usuário e senha para fazer o login</p>
+                <form class="form" autocomplete="off" #form="ngForm">
+                    <div class="p-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12 login-input-wrapper">
+                            <label>Nome de usuário *</label>
+                            <input pInputText type="text" name="username" ngModel required minlength="5" maxlength="18" #username="ngModel">
+                            <app-error-message [control]="username" type="dirty" error="required"
+                                text="Nome de usuário é obrigatorio"></app-error-message>
+                            <app-error-message [control]="username" type="dirty" error="minlength"
+                                text="Mínimo de {{ username.errors?.minlength?.requiredLength }} caracteres"></app-error-message>
+                        </div>
+                        <div class="p-field p-col-12 login-input-wrapper">
+                            <label>Senha *</label>
+                            <input pInputText type="password" name="password" ngModel required minlength="5" maxlength="18" #password="ngModel">
+                            <app-error-message [control]="password" type="dirty" error="required"
+                                text="Senha é obrigatorio"></app-error-message>
+                            <app-error-message [control]="password" type="dirty" error="minlength"
+                                text="Mínimo de {{ password.errors?.minlength?.requiredLength }} caracteres"></app-error-message>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button pButton type="submit" class="p-button-rounded" label="Login" (click)="login(username.value, password.value)"
+                            [disabled]="!form.valid"></button>
+                        <a href="#" routerLink="/signup">Criar uma nova conta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

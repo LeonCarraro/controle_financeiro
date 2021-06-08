@@ -1,0 +1,40 @@
+h1 {
+    margin: 26px 0 0;
+    font-size: 36px;
+}
+
+h2 {
+    margin: 0.5rem;
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card-wallets {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wallet-value-positive {
+    color: #1BD273;
+}
+
+.wallet-value-negative {
+    color: #F57A7A;
+}
+
+.card-wallets-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

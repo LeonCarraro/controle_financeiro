@@ -1,0 +1,53 @@
+<div class="layout-topbar" [ngStyle]="{ 'border-bottom': isMobile == false ? '1px solid #dee2e6': '0 none transparent' }">
+    <div class="topbar-left">
+        <span class="viewname">Olá, {{ authService.jwtPayload?.user_name }}</span>
+    </div>
+
+    <div *ngIf="isMobile == false">
+        <ul class="topbar-links center">
+            <li>
+                <a routerLink="/inicio">
+                    <span>visão geral</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/lancamentos">
+                    <span>lançamentos</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="topbar-right" (clickOutside)="closeUserMenu()">
+        <ul class="topbar-menu">
+            <li class="profile-item" (click)="showUserMenu = !showUserMenu">
+                <a href="javascript:void(0);">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+                <ul class="profile-menu" *ngIf="showUserMenu">
+                    <li>
+                        <a href="#" (click)="logout()">
+                            <i class="pi pi-power-off"></i>
+                            <span>Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="isMobile" class="layout-topbar mobile-menu">
+    <ul class="topbar-links">
+        <li>
+            <a routerLink="/inicio">
+                <span>visão geral</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/lancamentos">
+                <span>lançamentos</span>
+            </a>
+        </li>
+    </ul>
+</div>
